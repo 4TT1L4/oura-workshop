@@ -1,0 +1,9 @@
+[source]
+type = "N2N"
+address = ["Tcp", "preprod-node.world.dev.cardano.org:30000"]
+magic = "preprod"
+
+[sink]
+type = "Terminal"
+throttle_min_span_millis = 500
+wrap = true
