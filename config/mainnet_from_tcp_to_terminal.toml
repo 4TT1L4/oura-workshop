@@ -7,4 +7,3 @@ magic = "mainnet"
 type = "Terminal"
 throttle_min_span_millis = 500
 wrap = true
-

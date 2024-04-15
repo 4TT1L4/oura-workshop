@@ -22,6 +22,9 @@ oura --version
 ```
 
 ## Demo: watch
+
+[Documentation: Oura Watch Mode](https://txpipe.github.io/oura/usage/watch.html)
+
 ``` bash
 # Watch help:
 oura watch --help
@@ -32,6 +35,8 @@ oura watch --bearer tcp $RELAY
 
 ## Demo: dump
 
+[Documentation: Oura Dump Mode](https://txpipe.github.io/oura/usage/dump.html)
+
 ``` bash
 # Demo: dump
 oura dump --help
@@ -40,7 +45,9 @@ RELAY=relays-new.cardano-mainnet.iohk.io:3001
 oura dump --bearer tcp $RELAY
 ```
 
-# Demo: daemon
+## Demo: daemon
+
+[Documentation: Oura Daemon Mode](https://txpipe.github.io/oura/usage/daemon.html)
 
 ``` bash
 # Demo: daemon
