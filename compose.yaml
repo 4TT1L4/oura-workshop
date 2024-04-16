@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  webhook-listener:
+    build:
+      context: ./webhook-listener
+    environment:
+      SERVER_API_KEY: s3cr3t
+      SERVER_PORT: 8095
+    ports: ["8095:8095"]
+    restart: no
+  oura:
+    image: ghcr.io/txpipe/oura:v1.8.5
