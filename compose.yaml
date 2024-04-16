@@ -8,5 +8,3 @@ services:
       SERVER_PORT: 8095
     ports: ["8095:8095"]
     restart: no
-  oura:
-    image: ghcr.io/txpipe/oura:v1.8.5

@@ -22,7 +22,8 @@ docker run -it ghcr.io/txpipe/oura:latest
 ## Preparation:
 ``` bash
 # Set alias for easy access:
-alias oura="docker run -v $(pwd -W)/config/:/config -it ghcr.io/txpipe/oura:latest"
+RUST_LOG=info
+alias oura='docker run -e RUST_LOG=${RUST_LOG} -v $(pwd -W)/config/:/config -it ghcr.io/txpipe/oura:latest'
 # Verify:
 oura --version
 ```
@@ -72,16 +73,17 @@ Start the webhook listener server in the first terminal:
 
 ``` bash
 # Terminal 1: start the server
-make start-webhook-listener
+make start
 ```
 
 Send dummy request from a different terminal:
 
 ``` bash
 # Terminal 2: send a dummy requeest for dummy purposes
-make dummy-request
+make test
 ```
 
 ## Demo: Oura webhook
-
-# TODO
+```
+oura daemon --config ./config/mainnet_from_tcp_to_webhook.toml
+```
