@@ -84,6 +84,38 @@ make test
 ```
 
 ## Demo: Oura webhook
+
+Please make sure that the Webhook Listener Server is running!
+
 ```
 oura daemon --config ./config/mainnet_from_tcp_to_webhook.toml
 ```
+## Demo: Advanced Features
+
+### Advanced Features: Stateful Cursor
+
+TODO
+
+### Advanced Features: Rollback Buffer
+
+TODO
+
+### Advanced Features: Pipeline Metrics
+
+TODO
+
+### Advanced Features: Mapper Options
+
+TODO
+
+### Advanced Features: Intersect Options
+
+TODO
+
+### Advanced Features: Custom Network
+
+TODO
+
+### Advanced Features: Retry Policy
+
+TODO
