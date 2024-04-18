@@ -83,6 +83,30 @@ Send dummy request from a different terminal:
 make test
 ```
 
+Example payload:
+
+```yaml
+context:
+  block_hash: e8f9c860486d6b2fe6431a2cc0d82f31d410885afdc6f278dbd0197d343892af
+  block_number: 10202905
+  certificate_idx: null
+  input_idx: null
+  output_address: null
+  output_idx: null
+  slot: 121885035
+  timestamp: 1713451326
+  tx_hash: 7d36a438a02ebf48db0387c9ac66eb6105a736f3cd562f5025c707cfa71c648f
+  tx_idx: 19
+fingerprint: null
+metadata:
+  label: '56'
+  text_scalar: b4f17280c2091cc12f250402cebe1a5a74aaf85768ff,
+timestamp: 1713451326000
+variant: Metadata
+```
+
+For details on the data, please see the [Oura Data Dictionary](https://txpipe.github.io/oura/reference/data_dictionary.html#data-dictionary).
+
 ## Demo: Oura webhook
 
 Please make sure that the Webhook Listener Server is running!
@@ -136,7 +160,9 @@ TODO
 
 ### Advanced Features: Custom Network
 
-Configure Oura to connect to a custom network (other than mainnet or preprod).
+Configure Oura to connect to a custom network (other than mainnet, preview or preprod).
+
+For details see the [ChainConfig enum](https://github.com/txpipe/oura/blob/0e419322dba45f81f20a71f160eabbd2bfe12c3f/src/framework/mod.rs#L71-L75) in the Oura source.
 
 TODO
 
