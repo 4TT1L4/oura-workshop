@@ -1,0 +1,11 @@
+[source]
+type = "N2N"
+address = ["Tcp", "relays-new.cardano-mainnet.iohk.io:3001"]
+magic = "mainnet"
+# Rollback Buffer:
+min_depth = 3
+
+[sink]
+type = "Terminal"
+throttle_min_span_millis = 500
+wrap = true
