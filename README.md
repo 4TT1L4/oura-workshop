@@ -94,11 +94,15 @@ oura daemon --config ./config/mainnet_from_tcp_to_webhook.toml
 
 ### Advanced Features: Stateful Cursor
 
-TODO
+Please make sure that the Webhook Listener Server is running!
+
+```
+oura daemon --config ./config/mainnet_from_tcp_stateful_cursor.toml
+```
 
 ### Advanced Features: Rollback Buffer
 
-TODO
+
 
 ### Advanced Features: Pipeline Metrics
 
