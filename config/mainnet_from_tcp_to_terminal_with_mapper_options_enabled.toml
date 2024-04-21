@@ -1,0 +1,16 @@
+[source]
+type = "N2N"
+address = ["Tcp", "relays-new.cardano-mainnet.iohk.io:3001"]
+magic = "mainnet"
+
+[sink]
+type = "Terminal"
+throttle_min_span_millis = 500
+wrap = true
+
+[source.mapper]
+include_block_end_events = true
+include_transaction_details = true
+include_transaction_end_events = true
+include_block_cbor = true
+include_byron_ebb = true

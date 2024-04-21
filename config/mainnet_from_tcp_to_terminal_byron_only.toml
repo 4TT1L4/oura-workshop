@@ -1,0 +1,18 @@
+[source]
+type = "N2N"
+address = ["Tcp", "relays-new.cardano-mainnet.iohk.io:3001"]
+magic = "mainnet"
+
+[source.intersect]
+type = "Origin"
+
+[source.finalize]
+until_hash = "aa83acbf5904c0edfe4d79b3689d3d00fcfc553cf360fd2229b98d464c28e9de"
+
+[sink]
+type = "Webhook"
+# Linux:
+# url = "http://172.17.0.1:8095/webhook"
+
+# Docker Desktop:
+url = "http://host.docker.internal:8095/webhook"

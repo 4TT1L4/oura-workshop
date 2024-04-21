@@ -23,8 +23,8 @@ docker run -it ghcr.io/txpipe/oura:latest
 ``` bash
 # Set alias for easy access:
 RUST_LOG=info
-alias oura='docker run -e RUST_LOG=${RUST_LOG} -v $(pwd -W)/config/:/config -p 9186:9186 -it ghcr.io/txpipe/oura:latest'
-# Verify:
+alias oura='docker rm --force oura && docker run --name oura -e RUST_LOG=${RUST_LOG} -v $(pwd -W)/config/:/config -p 9186:9186 -it ghcr.io/txpipe/oura:latest'
+# Verify:d
 oura --version
 ```
 
@@ -164,11 +164,25 @@ A set of "expensive" event mapping procedures that require an explicit opt-in to
 
 ```toml
 [source.mapper]
-include_block_end_events = <bool>
-include_transaction_details = <bool>
-include_transaction_end_events = <bool>
-include_block_cbor = <bool>
-include_byron_ebb = <bool>
+include_block_end_events = true
+include_transaction_details = true
+include_transaction_end_events = true
+include_block_cbor = true
+include_byron_ebb = true
+```
+
+To terminal:
+
+```
+RUST_LOG=info
+oura daemon --config ./config/mainnet_from_tcp_to_terminal_with_mapper_options_enabled.toml
+```
+
+To Webhook:
+
+```
+RUST_LOG=info
+oura daemon --config ./config/mainnet_from_tcp_to_webhook_with_mapper_options_enabled.toml
 ```
 
 ### Advanced Features: Intersect Options
@@ -182,15 +196,18 @@ Advanced options for instructing Oura from which point in the chain to start rea
 - Fallbacks
 
 Advanced options for instructing Oura to stop syncing at a specific block:
+
 ```toml
 [source.finalize]
-until_hash = <BlockHash>
+until_hash = "aa83acbf5904c0edfe4d79b3689d3d00fcfc553cf360fd2229b98d464c28e9de"
 ```
 
-[source.finalize]
-until_hash = <BlockHash>
+Byron only:
 
-TODO
+```
+RUST_LOG=info
+oura daemon --config ./config/mainnet_from_tcp_to_webhook_byron_only.toml
+```
 
 ### Advanced Features: Custom Network
 
@@ -200,12 +217,38 @@ Configure Oura to connect to a custom network (other than mainnet, preview or pr
 
 For details see the [ChainConfig enum](https://github.com/txpipe/oura/blob/0e419322dba45f81f20a71f160eabbd2bfe12c3f/src/framework/mod.rs#L71-L75) in the Oura source.
 
-TODO
+```toml
+[chain]
+byron_epoch_length  = 432000
+byron_slot_length = 20
+byron_known_slot = 0
+byron_known_hash = "8f8602837f7c6f8b8867dd1cbc1842cf51a27eaed2c70ef48325d00f8efb320f"
+byron_known_time = 1564010416
+shelley_epoch_length = 432000
+shelley_slot_length = 1
+shelley_known_slot = 1598400
+shelley_known_hash = "02b1c561715da9e540411123a6135ee319b02f60b9a11a603d3305556c04329f"
+shelley_known_time = 1595967616
+address_hrp = "addr_test"
+adahandle_policy = "8d18d786e92776c824607fd8e193ec535c79dc61ea2405ddf3b09fe3"
+```
+
+Further custom networks:
+- https://sancho.network/
+- https://cardano-community.github.io/guild-operators/#/
 
 ### Advanced Features: Retry Policy
 
 [Documentation: Retry Policy](https://txpipe.github.io/oura/advanced/retry_policy.html)
 
 Advanced options for instructing Oura how to deal with failed attempts in certain sinks.
+
+```toml
+[sink.retry_policy]
+max_retries = 30
+backoff_unit =  5000
+backoff_factor = 2
+max_backoff = 100000
+```
 
 TODO
