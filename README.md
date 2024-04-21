@@ -113,7 +113,7 @@ For details on the data, please see the [Oura Data Dictionary](https://txpipe.gi
 
 Please make sure that the Webhook Listener Server is running!
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_to_webhook.toml
 ```
 ## Demo: [Advanced Features](https://txpipe.github.io/oura/advanced/index.html)
@@ -128,7 +128,7 @@ The cursor feature provides a mechanism to persist the "position" of the process
 
 Please make sure that the Webhook Listener Server is running!
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_stateful_cursor.toml
 ```
 
@@ -138,7 +138,7 @@ oura daemon --config ./config/mainnet_from_tcp_stateful_cursor.toml
 
 The "rollback buffer" feature provides a way to mitigate the impact of chain rollbacks in downstream stages of the data-processing pipeline.
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_rollback_buffer.toml
 ```
 
@@ -148,11 +148,11 @@ oura daemon --config ./config/mainnet_from_tcp_rollback_buffer.toml
 
 The metrics features allows operators to track the progress and performance of long-running Oura sessions.
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_pipeline_metrics.toml
 ```
 
-```
+```bash
 curl localhost:9186/metrics
 ```
 
@@ -173,13 +173,13 @@ include_byron_ebb = true
 
 To terminal:
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_to_terminal_with_mapper_options_enabled.toml
 ```
 
 To Webhook:
 
-```
+```bash
 oura daemon --config ./config/mainnet_from_tcp_to_webhook_with_mapper_options_enabled.toml
 ```
 
@@ -202,14 +202,14 @@ until_hash = "aa83acbf5904c0edfe4d79b3689d3d00fcfc553cf360fd2229b98d464c28e9de"
 
 Byron only:
 
-```
+```bash
 export RUST_LOG=WARN
 oura daemon --config ./config/mainnet_from_tcp_to_terminal_byron_only.toml
 ```
 
 Fallback:
 
-```
+```bash
 export RUST_LOG=WARN
 oura daemon --config ./config/mainnet_from_tcp_to_terminal_fallback.toml
 ```
@@ -256,7 +256,7 @@ backoff_factor = 2
 max_backoff = 100000
 ```
 
-```
+```bash
 export RUST_LOG=INFO
 oura daemon --config ./config/mainnet_from_tcp_to_webhook_retry.toml
 ```
