@@ -28,7 +28,7 @@ alias oura='docker run -e RUST_LOG=${RUST_LOG} -v $(pwd -W)/config/:/config -p 9
 oura --version
 ```
 
-## Demo: [watch](https://txpipe.github.io/oura/usage/watch.html)
+## Demo: watch
 
 [Documentation: Oura Watch Mode](https://txpipe.github.io/oura/usage/watch.html)
 
@@ -40,7 +40,7 @@ RELAY=relays-new.cardano-mainnet.iohk.io:3001
 oura watch --bearer tcp $RELAY
 ```
 
-## Demo: [dump](https://txpipe.github.io/oura/usage/dump.html)
+## Demo: dump
 
 [Documentation: Oura Dump Mode](https://txpipe.github.io/oura/usage/dump.html)
 
@@ -52,7 +52,7 @@ RELAY=relays-new.cardano-mainnet.iohk.io:3001
 oura dump --bearer tcp $RELAY
 ```
 
-## Demo: [daemon](https://txpipe.github.io/oura/usage/daemon.html)
+## Demo: daemon
 
 [Documentation: Oura Daemon Mode](https://txpipe.github.io/oura/usage/daemon.html)
 
@@ -107,7 +107,9 @@ variant: Metadata
 
 For details on the data, please see the [Oura Data Dictionary](https://txpipe.github.io/oura/reference/data_dictionary.html#data-dictionary).
 
-## Demo: [Oura webhook](https://txpipe.github.io/oura/sinks/webhook.html)
+## Demo: Oura webhook
+
+[Documentation: Oura Webhook Sink](https://txpipe.github.io/oura/sinks/webhook.html)
 
 Please make sure that the Webhook Listener Server is running!
 
@@ -116,7 +118,11 @@ oura daemon --config ./config/mainnet_from_tcp_to_webhook.toml
 ```
 ## Demo: [Advanced Features](https://txpipe.github.io/oura/advanced/index.html)
 
-### Advanced Features: [Stateful Cursor](https://txpipe.github.io/oura/advanced/stateful_cursor.html)
+[Documentation: Advanced Oura Features](https://txpipe.github.io/oura/advanced/index.html)
+
+### Advanced Features: Stateful Cursor
+
+[Documentation: Stateful Cursor](https://txpipe.github.io/oura/advanced/stateful_cursor.html)
 
 The cursor feature provides a mechanism to persist the "position" of the processing pipeline to make it resilient to restarts.
 
@@ -126,7 +132,9 @@ Please make sure that the Webhook Listener Server is running!
 oura daemon --config ./config/mainnet_from_tcp_stateful_cursor.toml
 ```
 
-### Advanced Features: [Rollback Buffer](https://txpipe.github.io/oura/advanced/rollback_buffer.html)
+### Advanced Features: Rollback Buffer
+
+[Documentation: Rollback Buffer](https://txpipe.github.io/oura/advanced/rollback_buffer.html)
 
 The "rollback buffer" feature provides a way to mitigate the impact of chain rollbacks in downstream stages of the data-processing pipeline.
 
@@ -134,7 +142,9 @@ The "rollback buffer" feature provides a way to mitigate the impact of chain rol
 oura daemon --config ./config/mainnet_from_tcp_rollback_buffer.toml
 ```
 
-### Advanced Features: [Pipeline Metrics](https://txpipe.github.io/oura/advanced/pipeline_metrics.html)
+### Advanced Features: Pipeline Metrics
+
+[Documentation: Pipeline Metrics](https://txpipe.github.io/oura/advanced/pipeline_metrics.html)
 
 The metrics features allows operators to track the progress and performance of long-running Oura sessions.
 
@@ -146,19 +156,45 @@ oura daemon --config ./config/mainnet_from_tcp_pipeline_metrics.toml
 curl localhost:9186/metrics
 ```
 
-### Advanced Features: [Mapper Options](https://txpipe.github.io/oura/advanced/mapper_options.html)
+### Advanced Features: Mapper Options
 
-A set of "expensive" event mapping procedures that require an explicit opt-in to be activated.
+[Documentation: Mapper Options](https://txpipe.github.io/oura/advanced/mapper_options.html)
+
+A set of "expensive" event mapping procedures that require an explicit opt-in to be activated:
+
+```toml
+[source.mapper]
+include_block_end_events = <bool>
+include_transaction_details = <bool>
+include_transaction_end_events = <bool>
+include_block_cbor = <bool>
+include_byron_ebb = <bool>
+```
+
+### Advanced Features: Intersect Options
+
+[Documentation: Intersect Options](https://txpipe.github.io/oura/advanced/intersect_options.html)
+
+Advanced options for instructing Oura from which point in the chain to start reading from:
+- Origin
+- Tip
+- Point
+- Fallbacks
+
+Advanced options for instructing Oura to stop syncing at a specific block:
+```toml
+[source.finalize]
+until_hash = <BlockHash>
+```
+
+[source.finalize]
+until_hash = <BlockHash>
 
 TODO
 
-### Advanced Features: [Intersect Options](https://txpipe.github.io/oura/advanced/intersect_options.html)
+### Advanced Features: Custom Network
 
-Advanced options for instructing Oura from which point in the chain to start reading from.
-
-TODO
-
-### Advanced Features: [Custom Network](https://txpipe.github.io/oura/advanced/custom_network.html)
+[Documentation: Custom Network](https://txpipe.github.io/oura/advanced/custom_network.html)
 
 Configure Oura to connect to a custom network (other than mainnet, preview or preprod).
 
@@ -166,7 +202,9 @@ For details see the [ChainConfig enum](https://github.com/txpipe/oura/blob/0e419
 
 TODO
 
-### Advanced Features: [Retry Policy](https://txpipe.github.io/oura/advanced/retry_policy.html)
+### Advanced Features: Retry Policy
+
+[Documentation: Retry Policy](https://txpipe.github.io/oura/advanced/retry_policy.html)
 
 Advanced options for instructing Oura how to deal with failed attempts in certain sinks.
 
