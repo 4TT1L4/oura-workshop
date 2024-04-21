@@ -1,7 +1,7 @@
 # Oura Workshop @ CARDANO BUIDLER FEST #1
 
-Conference website: [CARDANO BUIDLER FEST #1](https://buidl.2024.cardano.org/)
-Slide-deck: [Blockchain event streaming slides](https://docs.google.com/presentation/d/1guFNnU3FnXfmZeV0wTV4DhHZvEyhOWDWPDcSm60GumY/edit?usp=sharing)
+- Conference website: [CARDANO BUIDLER FEST #1](https://buidl.2024.cardano.org/)
+- Slide-deck: [Blockchain event streaming slides](https://docs.google.com/presentation/d/e/2PACX-1vRr_1iF5lNiG_PpVX_nH7s1vkWmGdZ09B6KcpPt574t7hsf5kAApW7KrQ1DOnOTU3Nr9LJAalt6xCeq/pub?start=false&loop=false&delayms=600000)
 
 ## Oura repository:
 
