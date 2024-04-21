@@ -1,5 +1,8 @@
 # Oura Workshop @ CARDANO BUIDLER FEST #1
 
+Conference website: [CARDANO BUIDLER FEST #1](https://buidl.2024.cardano.org/)
+Slide-deck: [Blockchain event streaming slides](https://docs.google.com/presentation/d/1guFNnU3FnXfmZeV0wTV4DhHZvEyhOWDWPDcSm60GumY/edit?usp=sharing)
+
 ## Oura repository:
 
 The source code (Rust) of Tx-Pipe Oura is available in the following repository:
