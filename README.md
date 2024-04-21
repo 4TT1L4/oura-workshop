@@ -174,14 +174,12 @@ include_byron_ebb = true
 To terminal:
 
 ```
-RUST_LOG=info
 oura daemon --config ./config/mainnet_from_tcp_to_terminal_with_mapper_options_enabled.toml
 ```
 
 To Webhook:
 
 ```
-RUST_LOG=info
 oura daemon --config ./config/mainnet_from_tcp_to_webhook_with_mapper_options_enabled.toml
 ```
 
@@ -205,8 +203,15 @@ until_hash = "aa83acbf5904c0edfe4d79b3689d3d00fcfc553cf360fd2229b98d464c28e9de"
 Byron only:
 
 ```
-RUST_LOG=info
-oura daemon --config ./config/mainnet_from_tcp_to_webhook_byron_only.toml
+export RUST_LOG=WARN
+oura daemon --config ./config/mainnet_from_tcp_to_terminal_byron_only.toml
+```
+
+Fallback:
+
+```
+export RUST_LOG=WARN
+oura daemon --config ./config/mainnet_from_tcp_to_terminal_fallback.toml
 ```
 
 ### Advanced Features: Custom Network
@@ -251,4 +256,7 @@ backoff_factor = 2
 max_backoff = 100000
 ```
 
-TODO
+```
+export RUST_LOG=INFO
+oura daemon --config ./config/mainnet_from_tcp_to_webhook_retry.toml
+```

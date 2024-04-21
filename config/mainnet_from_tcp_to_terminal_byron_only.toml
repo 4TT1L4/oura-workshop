@@ -9,10 +9,14 @@ type = "Origin"
 [source.finalize]
 until_hash = "aa83acbf5904c0edfe4d79b3689d3d00fcfc553cf360fd2229b98d464c28e9de"
 
-[sink]
-type = "Webhook"
-# Linux:
-# url = "http://172.17.0.1:8095/webhook"
+[[filters]]
+type = "Selection"
 
-# Docker Desktop:
-url = "http://host.docker.internal:8095/webhook"
+[filters.check]
+predicate = "variant_in"
+argument = ["Block"]
+
+[sink]
+type = "Terminal"
+throttle_min_span_millis = 500
+wrap = true
