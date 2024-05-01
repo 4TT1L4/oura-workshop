@@ -27,7 +27,7 @@ docker run -it ghcr.io/txpipe/oura:latest
 # Set alias for easy access:
 RUST_LOG=info
 alias oura='docker rm --force oura && docker run --name oura -e RUST_LOG=${RUST_LOG} -v $(pwd -W)/config/:/config -p 9186:9186 -it ghcr.io/txpipe/oura:latest'
-# Verify:d
+# Verify:
 oura --version
 ```
 
